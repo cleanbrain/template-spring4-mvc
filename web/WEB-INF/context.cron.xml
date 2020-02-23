@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1. Cron 대상이 되는 클래스 정의 -->
+    <bean id="cronSMSRandomNumQuartz" class="kr.co.cleanbrain.cron.extend.ConcurrentJobDetailBean">
+        <property name="jobClass" value="kr.co.cleanbrain.cron.CronSMSRandomNumQuartz"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <!-- 2. Cron 시간 설정 -->
+    <!-- cronExpression value 설정
+    * : 모든 수를 나타냄
+    - : 값의 사이를 의미
+    , : 특정값 지침
+    / : 값의 증가를 표현
+    ? : 특정한 값이 없음을 나타냄
+    L : 마지막 날을 나타냄
+    초 분 시 일 월 년 순서로 value 등록
+    예) 년도에 상관없이 매달1일 00시 정각에 작업진행
+    * * 0 1 * ?
+    년도의 특정한 값이 없이 모든 달에 1일날 0시정각에 분과 초는 상관없이 작업 수행
+    -->
+    <bean id="cronSMSRandomNumTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="cronSMSRandomNumQuartz"/>
+        <!-- TEST -->
+        <!--<property name="cronExpression" value="0 * * * * ?"/>-->
+        <!-- 매일 새벽 1시 진행 -->
+        <property name="cronExpression" value="0 0 1 * * ?"/>
+    </bean>
+
+    <!-- 3. Cron 실행 -->
+    <bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronSMSRandomNumTrigger"/>
+            </list>
+        </property>
+        <property name="quartzProperties">
+            <props>
+                <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop>
+                <prop key="org.quartz.threadPool.threadCount">3</prop>
+                <prop key="org.quartz.threadPool.threadPriority">4</prop>
+                <prop key="org.quartz.jobStore.class">org.quartz.simpl.RAMJobStore</prop>
+                <prop key="org.quartz.jobStore.misfireThreshold">86400000</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

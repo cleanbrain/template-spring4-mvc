@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- properties 사용 -->
+    <!-- dispatcher-servlet.xml 에서도 사용하려면 그곳에도 작성해주어야 함 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:conf/property/application.properties"/>
+        <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="testBean" class="kr.co.cleanbrain.vo.TestBean">
+        <property name="testMessage" value="Hello Spring MVC World!"/>
+    </bean>
+
+    <!-- URL 정보 -->
+    <bean id="bizURL" class="kr.co.cleanbrain.config.BizURL">
+        <property name="checkWindowsAuthURL" value="${CheckWindowsAuthURL}"/>
+        <property name="potalMainURL" value="${PotalMainURL}"/>
+        <property name="portalResetPwdURL" value="${PortalResetPwdURL}"/>
+        <property name="imChangePwdURL" value="${IMChangePwdURL}"/>
+        <property name="imResetPwdURL" value="${IMResetPwdURL}"/>
+        <property name="imResetPwdCheckURL" value="${IMResetPwdCheckURL}"/>
+        <property name="imCheckMobileURL" value="${IMCheckMobileURL}"/>
+        <property name="imSetVerificationCodeURL" value="${IMSetVerificationCodeURL}"/>
+    </bean>
+</beans>

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="cleanbrain-spring4-mvc-example:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/cleanbrain_spring4_mvc_example_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="cleanbrain-spring4-mvc-example" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="cleanbrain-spring4-mvc-example" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="cleanbrain-spring4-mvc-example/web/Web" />
+    </root>
+  </artifact>
+</component>
