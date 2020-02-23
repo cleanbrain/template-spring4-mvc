@@ -252,6 +252,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -334,12 +335,12 @@
       <option name="presentableId" value="Default" />
       <updated>1582451107939</updated>
       <workItem from="1582451109276" duration="14000" />
-      <workItem from="1582451225601" duration="404000" />
+      <workItem from="1582451225601" duration="534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="418000" />
+    <option name="totallyTimeSpent" value="548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="69" y="-8" width="1539" height="916" extended-state="6" />
