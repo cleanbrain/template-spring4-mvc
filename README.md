@@ -1,1 +1,1 @@
-# cleanbrain-spinrg-mvc-example
+# spinrg-mvc-example
