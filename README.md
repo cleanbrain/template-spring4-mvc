@@ -1,1 +1,1 @@
-# spinrg-mvc-example
+# template-spring4-mvc
